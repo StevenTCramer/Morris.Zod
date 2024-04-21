@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace Morris.Zod;
 
-public class PostBuildTask : Microsoft.Build.Utilities.Task
+public class ZodPostBuildTask : Microsoft.Build.Utilities.Task
 {
 	public string AssemblyPath { get; set; } = null!;
 	public string ProjectFilePath { get; set; } = null!;
@@ -18,6 +18,7 @@ public class PostBuildTask : Microsoft.Build.Utilities.Task
 			paramName: nameof(GeneratedTypeScriptOutputDir),
 			value: GeneratedTypeScriptOutputDir,
 			additionalInformation: @"The output directory can be specified in your csproj like so: <PropertyGroup><Morris_Zod_OutputDir>.\ZodGeneratedFiles</Morris_Zod_OutputDir></PropertyGroup>");
+
 		if (!isValid)
 			return false;
 

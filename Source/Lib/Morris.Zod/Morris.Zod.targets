@@ -1,9 +1,18 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <UsingTask TaskName="PostBuildTask" AssemblyFile="$(MSBuildThisFileDirectory)Morris.Zod.dll"/>
+
+    <PropertyGroup>
+        <_MorrisZodAssemblyFolder Condition="'$(MSBuildRuntimeType)' == 'Core'">net6.0</_MorrisZodAssemblyFolder>
+        <_MorrisZodAssemblyFolder Condition="'$(MSBuildRuntimeType)' != 'Core'">net472</_MorrisZodAssemblyFolder>
+        <_MorrisZodAssembly>$(_MorrisZodAssemblyFolder)\Morris.Zod.dll</_MorrisZodAssembly>
+    </PropertyGroup>
+
+    <UsingTask TaskName="ZodPostBuildTask" AssemblyFile="$(_MorrisZodAssembly)"/>
+    
     <Target Name="AfterBuild" AfterTargets="Build">
-        <PostBuildTask
+        <ZodPostBuildTask
             AssemblyPath="$(TargetPath)"
             ProjectFilePath="$(MSBuildProjectFullPath)"
             GeneratedTypeScriptOutputDir="$(Morris_Zod_OutputDir)" />
     </Target>
+
 </Project>

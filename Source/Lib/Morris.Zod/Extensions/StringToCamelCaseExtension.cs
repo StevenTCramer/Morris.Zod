@@ -6,7 +6,7 @@ internal static class StringToCamelCaseExtension
 		value switch {
 			null => null!,
 			string v when v.Length == 1 => v.ToLower(),
-			string v when v.Length > 1 => char.ToLower(v[0]) + v[1..],
+			string v when v.Length > 1 => char.ToLower(v[0]) + v.Substring(1),
 			_ => value
 		};
 }

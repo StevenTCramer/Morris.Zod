@@ -13,7 +13,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Morris.Zod" Version="0.1.0-Alpha3" />
+      <PackageReference Include="Morris.Zod" Version="0.1.0-Alpha5" />
     </ItemGroup>
 
 </Project>

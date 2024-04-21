@@ -17,8 +17,6 @@ internal class TypeScriptSourceGenerator
 	private readonly Action<string> LogError;
 	private readonly string ExpectedDefaultNamespace;
 
-	private readonly static FileStreamOptions DefaultFileStreamOptions = new() { Access = FileAccess.Write, Mode = FileMode.CreateNew, Share = FileShare.None };
-
 	private readonly static AttributeProcessorBase[] AttributeProcessors = typeof(TypeScriptSourceGenerator)
 		.Assembly
 		.GetTypes()
@@ -159,9 +157,13 @@ internal class TypeScriptSourceGenerator
 		: propertyType == typeof(bool) ? ".boolean()"
 		: propertyType == typeof(DateTime)
 			|| propertyType == typeof(DateTimeOffset)
+#if NET6_0_OR_GREATER
 			|| propertyType == typeof(DateOnly)
+#endif
 			? ".date()"
+#if NET6_0_OR_GREATER
 		: propertyType == typeof(TimeOnly) ? ".time()"
+#endif
 		: propertyType == typeof(Array)
 			|| propertyType.IsArray
 			|| (propertyType.IsGenericType && propertyType.GetGenericTypeDefinition() == typeof(List<>))
