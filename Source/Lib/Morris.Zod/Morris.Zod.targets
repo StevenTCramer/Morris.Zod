@@ -1,0 +1,9 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <UsingTask TaskName="PostBuildTask" AssemblyFile="$(MSBuildThisFileDirectory)Morris.Zod.dll"/>
+    <Target Name="AfterBuild" AfterTargets="Build">
+        <PostBuildTask
+            AssemblyPath="$(TargetPath)"
+            ProjectFilePath="$(MSBuildProjectFullPath)"
+            GeneratedTypeScriptOutputDir="$(Morris_Zod_OutputDir)" />
+    </Target>
+</Project>
