@@ -18,7 +18,7 @@ Converts .net assembly classes to TypeScript "Zod" validation files.
         <Morris_Zod_OutputDir>..\ZodGeneratedFiles</Morris_Zod_OutputDir>
     </PropertyGroup>
 ```
-Where the value of `Morris_Zod_OutputDir` is the path to where you want the generate TS files to be written, this path is relative to your csproj file.
+Where the value of `Morris_Zod_OutputDir` is the path to where you want the generated TS files to be written, this path is relative to your csproj file.
 3. Build
 
 Your generated files will be in the folder path you specified within your `csproj` file each time that project builds.
