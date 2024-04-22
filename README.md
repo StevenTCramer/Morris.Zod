@@ -9,7 +9,7 @@
 ## Overview
 Converts .net assembly classes to TypeScript "Zod" validation files.
 
-**NOTE:** Alpha version. Currently had a big where the consuming csproj won't build inside VS so you'll have to use `dotnet build`.
+**NOTE:** Alpha version. Currently has a bug where the consuming csproj won't build inside VS so you'll have to use `dotnet build`.
 
 ## Getting started
 
