@@ -9,6 +9,8 @@
 ## Overview
 Converts .net assembly classes to TypeScript "Zod" validation files.
 
+**NOTE:** Alpha version. Currently had a big where the consuming csproj won't build inside VS so you'll have to use `dotnet build`.
+
 ## Getting started
 
 1. Add a NuGet package reference to Morris.Zod to the project you want to generate Zod TypeScript files for.
